@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="/socket.io/socket.io.js"></script>
+	<title>Domitica desde la web</title>
+</head>
+<body>
+<style>
+	/* html{
+		background-color: darkcyan;
+	} */
+	.monitoreo{
+		margin-top: 8%;
+	}
+	.btns{
+		margin-top: 11%;
+	}
+	.btnActivar, .btnActualizar{
+		background-color: cornflowerblue;
+	}
+	@media only screen and (max-width: 728px){
+		.btnActivar, .btnActualizar{
+			width: 100%;
+		}
+	}
+</style>
+	<section>
+		<h1 class="center">Sistema de control y monitoreo</h1>
+		<!-- Container -->
+		<div class="container monitoreo">
+			<div class="row">
+
+			<!-- Campos -->
+				<div class="col s12 m4">
+					<h5 class="center">Temperatura</h5>
+					<input class="disabled" id="temp" type="text" placeholder="Temperatura en C°">
+				</div>
+				<div class="col s12 m4">
+					<h5 class="center">Led</h5>
+					<input id="distance" type="text" placeholder="LED">
+				</div>
+				<div class="col s12 m4">
+					<h5 class="center">Dispositivo activo</h5>
+					<input class="disabled" id="device" type="text" placeholder="El dispositivo activo es">
+				</div>
+
+				<!-- Botones -->
+					<div class="col s12 m5 offset-m2 btns">
+						<a id="ledoff" class="waves-effect waves-light btn-large btnActualizar">Apagar</a>
+					</div>
+					<div class="col s12 m5 btns">
+						<a id="active" class="waves-effect waves-light btn-large btnActivar">Activar</a>
+					</div>
+			</div>
+		</div>
+	</section>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
