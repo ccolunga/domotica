@@ -17,3 +17,7 @@ $("#ledoff").click(function(){
 		socket.emit('led:off');
 		console.log("emitido Y")
 });
+
+socket.on('temp', function(data){
+	$("#temp").val(data);
+});
