@@ -32,17 +32,13 @@ board.on("ready", function() {
 			temp.on("change", function(data){
 				var temp = this.celsius;
 				socket.emit('temp', this.celsius + "°C");
-    		console.log("temp: " + temp);
+    		//console.log("temp: " + temp);
     	});
 
     	/** Sensor de proximidad **/
     	proximity.on("data", function(data) {
     	  socket.emit('prox', this.cm + "cm");
-    	  console.log("-----------------");
-    	});
-
-    	proximity.on("change", function() {
-    	  console.log("The obstruction has moved.");
+    	  //console.log("-----------------");
     	});
 
 			/** Leds **/
