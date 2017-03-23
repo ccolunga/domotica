@@ -10,9 +10,6 @@ var five = require('johnny-five');
  	res.sendFile(__dirname + 'public/index.html');
  });
 
-// var ledOn = "Led encendido";
-// var ledOff = "";
-
 var board = new five.Board();  
 board.on("ready", function() {  
     console.log('Arduino connected');
@@ -23,24 +20,41 @@ board.on("ready", function() {
     	controller: "LM35"
     });
 
+    var proximity = new five.Proximity({
+    	controller: "HCSR04",
+    	pin: 7,
+    	freq: 50
+  	});
+
     io.on('connection', function(socket){
 			console.log('good');
-
+			//Temperatura
 			temp.on("change", function(data){
 				var temp = this.celsius;
 				socket.emit('temp', this.celsius + "°C");
     		console.log("temp: " + temp);
     	});
 
-			socket.on('led:on', function(data){
-			led.on();
-			socket.emit('ledOn', 'Led prendido');
-		});
+    	/** Sensor de proximidad **/
+    	proximity.on("data", function(data) {
+    	  socket.emit('prox', this.cm + "cm");
+    	  console.log("-----------------");
+    	});
 
-		socket.on('led:off', function(data){
-			led.off();
-			socket.emit('ledOff', 'Led apagado');
-		});
+    	proximity.on("change", function() {
+    	  console.log("The obstruction has moved.");
+    	});
+
+			/** Leds **/
+			socket.on('led:on', function(data){
+				led.on();
+				socket.emit('ledOn', 'Led prendido');
+			});
+			socket.on('led:off', function(data){
+				led.off();
+				socket.emit('ledOff', 'Led apagado');
+			});
+		/** Leds **/
 	});
 });
 

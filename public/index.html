@@ -9,9 +9,6 @@
 </head>
 <body>
 <style>
-	/* html{
-		background-color: darkcyan;
-	} */
 	.monitoreo{
 		margin-top: 8%;
 	}
@@ -20,6 +17,10 @@
 	}
 	.btnActivar, .btnActualizar{
 		background-color: cornflowerblue;
+	}
+	input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+		font-size: 23px;
+		text-align: center;
 	}
 	@media only screen and (max-width: 728px){
 		.btnActivar, .btnActualizar{
@@ -34,17 +35,22 @@
 			<div class="row">
 
 			<!-- Campos -->
+				<!-- Temperatura -->
 				<div class="col s12 m4">
 					<h5 class="center">Temperatura</h5>
 					<input class="disabled" id="temp" type="text" placeholder="Temperatura en C°">
 				</div>
+				
+				<!-- Led -->
 				<div class="col s12 m4">
 					<h5 class="center">Led</h5>
-					<input id="distance" type="text" placeholder="LED">
+					<input id="led" type="text" placeholder="LED" value="Led apagado">
 				</div>
+				
+				<!-- Sensor de proximidad -->
 				<div class="col s12 m4">
-					<h5 class="center">Dispositivo activo</h5>
-					<input class="disabled" id="device" type="text" placeholder="El dispositivo activo es">
+					<h5 class="center">Sensor de proximidad (cm)</h5>
+					<input class="disabled" id="proximity" type="text">
 				</div>
 
 				<!-- Botones -->
