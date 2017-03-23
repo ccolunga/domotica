@@ -26,8 +26,13 @@ board.on("ready", function() {
     	freq: 50
   	});
 
+  	var servo = new five.Servo({
+  		pin: 6,
+  	});
+
     io.on('connection', function(socket){
 			console.log('good');
+			
 			//Temperatura
 			temp.on("change", function(data){
 				var temp = this.celsius;
@@ -39,6 +44,12 @@ board.on("ready", function() {
     	proximity.on("data", function(data) {
     	  socket.emit('prox', this.cm + "cm");
     	  //console.log("-----------------");
+    	});
+
+    	/** Motor **/
+    	socket.on('mover', function(data){
+    		servo.sweep();
+    		console.log("moviendo server");
     	});
 
 			/** Leds **/

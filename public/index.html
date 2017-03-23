@@ -12,8 +12,8 @@
 	.monitoreo{
 		margin-top: 8%;
 	}
-	.btns{
-		margin-top: 11%;
+	.rotar{
+		padding-top: 70px!important;
 	}
 	.btnActivar, .btnActualizar{
 		background-color: cornflowerblue;
@@ -60,7 +60,18 @@
 					<h5 class="center">Sensor de proximidad (cm)</h5>
 					<input class="disabled" id="proximity" type="text">
 				</div>
-
+				
+				<!-- Motor a pasos -->
+				<div class="rotar col s12">
+					<h5 class="center">Motor</h5>
+					<div class="col s12 m6 push-m2">
+						<a id="mover" class="waves-effect waves-light btn-large ">Mover</a>
+					</div>
+					<div class="col s12 m4 push-m2">
+						<a disabled id="atras" class="waves-effect waves-light btn-large">Atras</a>
+					</div>
+				</div>
+				</div>
 			</div>
 		</div>
 	</section>

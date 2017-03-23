@@ -24,4 +24,13 @@ socket.on('temp', function(data){
 
 socket.on('prox', function(data){
 	$("#proximity").val(data);
-})
+});
+
+$("#mover").click(function(){
+	socket.emit('mover');
+	console.log("Moviendo client");
+});
+
+// $("#atras").click(function(){
+// 	socket.emit('ToMinus90');
+// });
